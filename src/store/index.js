@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import firebaseConfig from '../../firebase/firebase'
-import * as firebase from 'firebase/app';
-import 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
-firebase.initializeApp(firebaseConfig)
-var db = firebase.firestore();
+const firebaseApp = initializeApp(firebaseConfig)
+var db = getFirestore(firebaseApp);
 Vue.use(Vuex)
 
 
@@ -38,8 +38,7 @@ const Form = {
             }
             if (rootState.stepCount == 2) {
                 //送信ボタンを押すとfirestoreにお問い合わせ内容を送信する
-                db.collection("test1")
-                    .add({
+                addDoc(collection(db, "test1"), {
                         surname: rootState.surname + rootState.name,
                         surnamefurigana: rootState.surnamefurigana + rootState.furigana,
                         company: rootState.company,
