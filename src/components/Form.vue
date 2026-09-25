@@ -31,11 +31,11 @@
 </template>
 
 <script>
-import HeadComp from "@/components/modules/HeadComp";
-import TextareaComp from "@/components/modules/TextareaComp";
-import StringComp from "@/components/modules/StringComp";
-import Explanation from "@/components/modules/Explanation";
-import Thank from "@/components/modules/Thank";
+import HeadComp from "@/components/modules/HeadComp.vue";
+import TextareaComp from "@/components/modules/TextareaComp.vue";
+import StringComp from "@/components/modules/StringComp.vue";
+import Explanation from "@/components/modules/Explanation.vue";
+import Thank from "@/components/modules/Thank.vue";
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "Form",
